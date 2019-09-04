@@ -9,6 +9,11 @@ jobs:
       - setup_remote_docker:
           docker_layer_caching: true
       - run:
+          name: Basic components
+          command: |
+            apt update
+            apt install curl tar -y
+      - run:
           name: Install Docker client
           command: |
             set -x
