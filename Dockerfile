@@ -6,7 +6,7 @@ RUN set -x \
     && apt-get dist-upgrade -y \
     && apt-get autoclean \
     && apt-get autoremove \
-    && apt-get install bash python2.7 nodejs cmake curl git gcc clang default-jre -y
+    && apt-get install bash python2.7 nodejs cmake curl git gcc clang default-jre python3 python3-pip -y
 
 SHELL ["/bin/bash", "-c"]
 
