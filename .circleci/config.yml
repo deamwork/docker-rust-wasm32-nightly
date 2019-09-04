@@ -1,0 +1,16 @@
+version: 2
+
+jobs:
+  build:
+    docker:
+      - image: ubuntu:18.04
+    steps:
+      - checkout
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run:
+          name: Build and push Docker image
+          command: |
+            docker build -t jasongop/$IMAGE_NAME:$TAG .
+            docker login -u $DOCKER_LOGIN --password $DOCKER_PWD
+            docker push jasongop/$IMAGE_NAME:$TAG
